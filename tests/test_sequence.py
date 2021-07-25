@@ -13,7 +13,7 @@ def test_creation():
     assert sequence.n == 5
     assert hasattr(sequence, "sequence")
     assert isinstance(sequence.sequence, list)
-    assert len(sequence.sequence) == 5
+    assert len(sequence.sequence) == 0
 
 
 @pytest.mark.parametrize(
@@ -28,5 +28,5 @@ def test_generate_sequence(n):
     sequence.generate(2 * n)
     assert all(-(2 * n) <= i <= 2 * n for i in sequence.sequence)
 
-    sequence.generate()
+    sequence.generate(n)
     assert all(-n <= i <= n for i in sequence.sequence)
